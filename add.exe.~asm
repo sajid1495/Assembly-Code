@@ -1,0 +1,23 @@
+.model small
+.stack 100h
+.data
+A db 3
+B db 3
+sum db ?
+.code
+main proc
+;initialize DS
+mov AL, @data
+mov DS, AX
+;add the numbers
+mov AL, a       ; ax has a
+add AL, b       ; ax has a+b
+mov sum, AL     ; sum= a+b
+;exit to dos
+mov Ax,4c00h
+int 21h
+
+
+
+
+; [SOURCE]: D:\CODE\CSE 2206 Lab\add.asm
