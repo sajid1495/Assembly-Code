@@ -1,3 +1,5 @@
+;code for determining addition, substraction, multiplication and devision of two numbers
+
 .model small
 .stack 100h
 .data
@@ -35,7 +37,7 @@ main proc
     MOV DL, 10
     MOV AH, 2
     INT 21H
-    MOV DL, 08
+    MOV DL, 13
     MOV AH, 2
     INT 21H
     
@@ -54,7 +56,7 @@ main proc
     MOV DL, 10
     MOV AH, 2
     INT 21H
-    MOV DL, 08
+    MOV DL, 13
     MOV AH, 2
     INT 21H
     
@@ -63,6 +65,60 @@ main proc
     ADD DL, 30H
     MOV AH, 2
     INT 21H
+    
+    ;multiplying numbers
+    MOV AL, A
+    MUL B 
+    MOV BX, AX
+    
+    ;printing newline
+    MOV DL, 10
+    MOV AH, 2
+    INT 21H
+    MOV DL, 13
+    MOV AH, 2
+    INT 21H
+    
+    ;printing result
+    MOV DX, BX
+    ADD DL, 30H
+    MOV AH, 2
+    INT 21H   
+    
+    ;initializing devident
+    MOV AH, 0
+    MOV AL, A
+    DIV B
+    MOV BL, AL
+    MOV BH, AH
+    
+    ;printing newline
+    MOV DL, 10
+    MOV AH, 2
+    INT 21H
+    MOV DL, 13
+    MOV AH, 2
+    INT 21H
+    
+    ;printing result
+    MOV DL, BL
+    ADD DL, 30H
+    MOV AH, 2
+    INT 21H
+    
+    ;printing space
+    MOV DL, 20h
+    MOV AH, 2
+    INT 21H
+    
+    ;printing result
+    MOV DL, BH
+    ADD DL, 30H
+    MOV AH, 2
+    INT 21H
+    
+      
+    
     
 main endp 
 end main
