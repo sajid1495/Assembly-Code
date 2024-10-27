@@ -1,4 +1,4 @@
-;code for determining addition, substraction of two numbers
+;code for determining addition of two numbers
 
 .model small
 .stack 100h
