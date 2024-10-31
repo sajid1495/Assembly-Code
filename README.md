@@ -1,6 +1,6 @@
 # CSE 2206: Assembly Language Sessional
 
-This repository contains all the assembly language code written as part of the **CSE 2206** course at RUET. The programs cover a range of topics and concepts from the course syllabus.
+This repository contains all assembly language codes written as part of the **CSE 2206** course at RUET. The programs cover a range of topics and concepts from the course syllabus.
 
 ## Course Information
 - **Course Title:** Microprocessor, Microcontroller and Assembly Language 
