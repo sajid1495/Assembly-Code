@@ -46,4 +46,8 @@ notfound:
     int 21h 
     jmp endproc
     
-endproc:
+endproc:  
+
+
+main endp
+end main

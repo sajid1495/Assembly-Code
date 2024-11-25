@@ -1,40 +1,40 @@
+; reverse the array     
 .model small
 .stack 100h
-.data
-    array db 1, 2, 3, 4, 5
-    arr_size db 5
-    comma db ',', ' $'
-    newline db 0dh, 0ah, '$'
-    
+.data  
+    array db 2,3,5,7,8
+    length db 0  
 .code
-main proc
+main proc  
     mov ax, @data
-    mov ds, ax
+    mov ds, ax 
     
-    mov cl, arr_size
-    dec cl 
+    lea si, array
+    lea di, array[4]
+    mov cx, 5
+    shr cx, 1
+L1: 
+    mov al, [si]
+    mov bl, [di]
     
-print_loop:
-    mov bx, offset array
-    add bl, cl
-    mov al, [bx]
-    add al, 30h
-    mov dl, al
-    mov ah, 02h
+    mov [si], bl
+    mov [di], al
+    inc si
+    dec di
+    loop L1
+    
+    mov cx, 5 
+    lea si, array   
+L2:          
+    mov dl, array[si] 
+    add dl, 30h
+    mov ah, 2
     int 21h
-    cmp cl, 0
-    je skip_comma
-    lea dx, comma
-    mov ah, 09h
-    int 21h
-skip_comma:
-    dec cl
-    cmp cl, -1
-    jne print_loop
-    lea dx, newline
-    mov ah, 09h
-    int 21h
-    mov ah, 4ch
-    int 21h
+    mov dl, 2ch
+    mov ah, 2
+    int 21h  
+    inc si
+    loop L2 
+    
 main endp
 end main

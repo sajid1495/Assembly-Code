@@ -1,24 +1,25 @@
+;code for bubble sort
 .model small
 .stack 100h
 .data
-    array dw 5, 3, 8, 1, 4     ; Array to be sorted
-    size dw 5                  ; Number of elements in the array
+    array dw 5, 3, 8, 1, 4     
+    size dw 5                  
 .code
 main proc
     MOV AX, @data
-    MOV DS, AX                 ; Initialize data segment
+    MOV DS, AX                 
     
-    LEA SI, array              ; Load address of the array into SI
-    MOV CX, size               ; Outer loop counter (size of array - 1)
-    DEC CX                     ; Reduce by 1 as the last pass is unnecessary
+    LEA SI, array              
+    MOV CX, size               
+    DEC CX                     
 
 outer_loop:
-    MOV BX, CX                 ; Inner loop counter (remaining elements to compare)
-    LEA SI, array              ; Reset SI to the start of the array
+    MOV BX, CX                 
+    LEA SI, array              
 
 inner_loop:
-    MOV AX, [SI]               ; Load the current element
-    MOV DX, [SI+2]             ; Load the next element
+    MOV AX, [SI]               
+    MOV DX, [SI+2]             
     CMP AX, DX                 ; Compare current and next element
     JLE no_swap                ; If AX <= DX, no swap needed
     XCHG AX, DX                ; Swap AX and DX

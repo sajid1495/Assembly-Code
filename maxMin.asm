@@ -1,3 +1,4 @@
+;code for finding maximum and minimum element of an array
 .model small
 .stack 100h
 .data
@@ -16,9 +17,9 @@ main proc
     xor bx,bx
     mov al,[a+bx]
     mov max,al
-    ;mov max,[a+bx]
     mov al,[a+bx]
-    mov min,al
+    mov min,al    
+    
     l:
     cmp bx,7
     je pnt
@@ -29,10 +30,13 @@ main proc
     cmp al,[a+bx]
     jg mn
     inc bx
-    jmp l
+    jmp l  
+    
     mx:
     mov al,[a+bx]
-    mov max,al
+    mov max,al 
+    jmp l  
+    
     mn:
     mov al,[a+bx]
     mov min,al
@@ -63,6 +67,7 @@ main proc
     mov dl,min
     add dl,30h
     mov ah,2
-    int 21h
-    main endp
+    int 21h 
+    
+main endp
 end main
